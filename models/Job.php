@@ -59,13 +59,14 @@ class Job {
     public static function update($id, $options) {
         $db = Db::getConnection();
 
+
         $sql = "UPDATE jobs
             SET 
                 name = :name, 
                 email = :email, 
                 text = :text, 
                 status = :status, 
-                is_edit = :is_edit, 
+                is_edit = :is_edit
             WHERE id = :id";
 
         $result = $db->prepare($sql);
@@ -73,8 +74,8 @@ class Job {
         $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
         $result->bindParam(':email', $options['email'], PDO::PARAM_STR);
         $result->bindParam(':text', $options['text'], PDO::PARAM_STR);
-        $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
-        $result->bindParam(':is_edit', $options['is_edit'], PDO::PARAM_INT);
+        $result->bindParam(':status', $options['status']);
+        $result->bindParam(':is_edit', $options['is_edit']);
 
         return $result->execute();
     }

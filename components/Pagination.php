@@ -125,14 +125,19 @@ class Pagination
 
         $currentURI = rtrim($_SERVER['REQUEST_URI'], '/');
         $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
-        $row = '';
-        $newCurrentURI = $currentURI;
+
+        $newCurrentURI = '';
         if(strpos($currentURI, '?') !== false) {
-            $newCurrentURI = stristr($currentURI,'?',true);
+            $newCurrentURI = $currentURI;
+            $currentURI = '';
         }
+        else {
+            $currentURI.= '/';
+        }
+
         # Формируем HTML код ссылки и возвращаем
         return
-                '<li class="page-item"><a class="page-link" href="' . $newCurrentURI . $this->index . $page . $currentURI . '">' . $text . '</a></li>';
+                '<li class="page-item"><a class="page-link" href="' . $currentURI . $this->index . $page . $newCurrentURI. '">' . $text . '</a></li>';
     }
 
     /**

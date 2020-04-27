@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="checkbox" name="status" <?php if($job['status']): ?> checked <?php endif; ?> value="<?php echo $job['status']; ?>">
+                        <input type="checkbox" name="status" <?php if($job['status']): ?> checked <?php endif; ?> value="1">
                         <label for="exampleInputPassword1">Статус выполнено</label>
                     </div>
 

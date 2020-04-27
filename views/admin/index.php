@@ -50,6 +50,8 @@
                     <?php endforeach; ?>
                     </tbody>
                 </table>
+
+                <?php echo $pagination->get(); ?>
             </div>
         </div>
     </div>
