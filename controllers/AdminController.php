@@ -15,7 +15,6 @@ class AdminController extends AdminBase {
     }
 
     public function actionDelete($id) {
-        die('delete');
         self::checkAdmin();
 
         Job::deleteById($id);
